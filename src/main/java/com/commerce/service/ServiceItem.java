@@ -2,15 +2,15 @@ package com.commerce.service;
 
 import java.util.List;
 
-import com.commerce.entity.Client;
+import com.commerce.entity.ItemInvoice;
 
 public interface ServiceItem {
 	
-    public List<Client> findAll();
+    public List<ItemInvoice> findAll();
 		
-	public void save(Client cliente);
+	public void save(ItemInvoice item);
 	
-	public Client findOne(Long id);
+	public ItemInvoice findOne(Long id);
 	
 	public void delete(Long id);
 
