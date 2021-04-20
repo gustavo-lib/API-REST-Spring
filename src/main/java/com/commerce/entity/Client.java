@@ -2,6 +2,7 @@ package com.commerce.entity;
 
 import java.util.Date;
 import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-public class Client {
+public class Client implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -117,4 +118,6 @@ public class Client {
 	public String toString() {
 		return nombre + " " + apellido;
 	}
+	
+	private static final long serialVersionUID = 1L;
 }
