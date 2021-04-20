@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.commerce.entity.Product;
 import com.commerce.service.ServiceProduct;
 
-@Service
+@Service("productImpl")
 public class ServiceProductImpl implements ServiceProduct{
 
 	@Override

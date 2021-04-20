@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.commerce.entity.Client;
 
-@Repository
+@Repository("clientRepository")
 public interface IClient extends JpaRepository<Client, Long> {
 
 }

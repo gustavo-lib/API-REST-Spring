@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.commerce.entity.Invoice;
 
-@Repository
+@Repository("invoiceRepository")
 public interface IInvoice extends JpaRepository<Invoice, Long> {
 
 }

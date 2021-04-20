@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.commerce.entity.ItemInvoice;
 import com.commerce.service.ServiceItem;
 
-@Service
+@Service("itemImpl")
 public class ServiceItemImpl implements ServiceItem{
 
 	@Override

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.commerce.entity.Client;
 import com.commerce.service.ServiceClient;
 
-@Service
+@Service("clientImpl")
 public class ServiceClientImpl implements ServiceClient  {
 
 	@Override

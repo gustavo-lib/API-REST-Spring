@@ -2,7 +2,7 @@ package com.commerce.service;
 
 import java.util.List;
 
-import com.commerce.entity.Client;
+
 import com.commerce.entity.Product;
 
 public interface ServiceProduct {
