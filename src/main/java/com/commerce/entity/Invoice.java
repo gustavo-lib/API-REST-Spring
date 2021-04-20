@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 
+
 @Entity
 public class Invoice implements Serializable {
 	
@@ -37,7 +38,7 @@ public class Invoice implements Serializable {
 	private Date createAt;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Client Client;
+	private Client client;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "invoice_id")
@@ -85,11 +86,11 @@ public class Invoice implements Serializable {
 	}
 
 	public Client getClient() {
-		return Client;
+		return client;
 	}
 
 	public void setClient(Client Client) {
-		this.Client = Client;
+		this.client = Client;
 	}
 
 	public List<ItemInvoice> getItems() {

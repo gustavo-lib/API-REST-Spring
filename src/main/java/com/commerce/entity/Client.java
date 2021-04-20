@@ -19,6 +19,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -45,11 +46,11 @@ public class Client implements Serializable{
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
 	
-	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Invoice> Invoices;
+	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Invoice> invoices;
 	
 	public Client() {
-		Invoices = new ArrayList<Invoice>();
+		invoices = new ArrayList<Invoice>();
 	}
 
 	private String foto;
@@ -103,15 +104,15 @@ public class Client implements Serializable{
 	}
 
 	public List<Invoice> getInvoices() {
-		return Invoices;
+		return invoices;
 	}
 
 	public void setInvoices(List<Invoice> Invoices) {
-		this.Invoices = Invoices;
+		this.invoices = Invoices;
 	}
 	
 	public void addInvoice(Invoice Invoice) {
-		Invoices.add(Invoice);
+		invoices.add(Invoice);
 	}
 
 	@Override
