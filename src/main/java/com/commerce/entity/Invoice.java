@@ -20,6 +20,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Invoice implements Serializable {
@@ -37,7 +39,9 @@ public class Invoice implements Serializable {
 	@Column(name = "create_at")
 	private Date createAt;
 
+	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Client client;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
