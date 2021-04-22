@@ -23,7 +23,7 @@ public class ControllerClient {
 	ServiceClient serviceClient;
 	@GetMapping("")
 	public ResponseEntity<?> obtenerEmpleados(){
-	    try {
+	try {
 			return ResponseEntity.status(HttpStatus.OK).body(serviceClient.findAll());
 		} catch (Exception e) {
 			// TODO: handle exception
