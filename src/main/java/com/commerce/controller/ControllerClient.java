@@ -1,13 +1,13 @@
 package com.commerce.controller;
 
-import java.util.Date;
-import java.util.List;
+
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,7 @@ import com.commerce.entity.Client;
 import com.commerce.service.ServiceClient;
 
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping("/api/client")
 public class ControllerClient {
 
 	@Autowired
@@ -60,7 +60,7 @@ public class ControllerClient {
 	    }		
 	} 
 	
-	@PostMapping("/guardar")
+	@PostMapping("/save")
 	public ResponseEntity<Client> guardarEmpleado(@RequestBody @Valid Client c){
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(serviceClient.save(c));
@@ -69,4 +69,10 @@ public class ControllerClient {
 		}
 	} 
 		
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Void> eliminarEmpleado(@PathVariable Long id){
+		serviceClient.delete(id);
+		return ResponseEntity.noContent().build();
+	} 
 }
