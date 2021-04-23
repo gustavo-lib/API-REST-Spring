@@ -28,21 +28,26 @@ public class ServiceClientImpl implements ServiceClient  {
 	}
 
 	@Override
-	public void save(Client cliente) {
+	public Client save(Client cliente) {
 		// TODO Auto-generated method stub
-		
+		return respositoryClient.save(cliente);
 	}
 
 	@Override
 	public Client findOne(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return respositoryClient.getOne(id);
 	}
 
 	@Override
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		
+		//respositoryClient.s
+	}
+
+	@Override
+	public Client update(Long id, Client cliente) {
+		// TODO Auto-generated method stub
+		return respositoryClient.save(cliente);
 	}
 
 }

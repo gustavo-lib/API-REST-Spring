@@ -8,7 +8,9 @@ public interface ServiceClient {
 	
 	public List<Client> findAll();
 	
-	public void save(Client cliente);
+	public Client save(Client cliente);
+	
+	public Client update(Long id, Client cliente);
 	
 	public Client findOne(Long id);
 	
