@@ -119,6 +119,16 @@ public class Invoice implements Serializable {
 		}
 		return total;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Invoice [id=" + id + ", descripcion=" + descripcion + ", observacion=" + observacion + ", createAt="
+				+ createAt + ", client=" + client.getId() + ", items=" + items + "]";
+	}
+
+
 
 	private static final long serialVersionUID = 1L;
 

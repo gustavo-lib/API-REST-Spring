@@ -3,7 +3,7 @@ package com.commerce.dto;
 import java.util.Date;
 import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
-import com.commerce.dto.InvoiceDTO;
+
 
 
 public class ClientDTO {
