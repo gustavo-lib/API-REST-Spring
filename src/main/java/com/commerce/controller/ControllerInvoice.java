@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.codeforgeyt.onetomanywebservice.model.Cart;
+import com.codeforgeyt.onetomanywebservice.model.dto.CartDto;
 import com.commerce.entity.Client;
 import com.commerce.entity.Invoice;
 import com.commerce.service.ServiceClient;
@@ -65,13 +67,20 @@ public class ControllerInvoice {
 	/*@PostMapping("/save")
 	public ResponseEntity<Invoice> guardarFactura(@RequestBody @Valid Invoice invoice){
 		try {
-			Client c= new Client();
-			Long id=new Long(27);//id cliente que existe
-			c.setId(id);
-			invoice.setClient(c);
+			//Client c= new Client();
+			//Long id=new Long(27);//id cliente que existe
+			//c.setId(id);
+			//invoice.setClient(c);
 			return ResponseEntity.status(HttpStatus.OK).body(serviceInvoice.save(invoice));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 	}*/
+	
+	 @PostMapping(value = "{invoiceId}/items/{itemId}/add")
+	    public ResponseEntity<Invoice> addItemToCart(@PathVariable final Long invoiceId,
+	                                                 @PathVariable final Long itemId){
+	        Cart cart = cartService.addItemToCart(cartId, itemId);
+	        return new ResponseEntity<>(CartDto.from(cart), HttpStatus.OK);
+	    }
 }

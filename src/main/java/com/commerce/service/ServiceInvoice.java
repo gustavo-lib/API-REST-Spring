@@ -14,5 +14,7 @@ public interface ServiceInvoice {
 	public Invoice findOne(Long id);
 	
 	public void delete(Long id);
+	
+	public Invoice addItemToInvoice(Long idInvoice, Long idItem);
 
 }
