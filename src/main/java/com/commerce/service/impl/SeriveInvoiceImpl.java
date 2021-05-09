@@ -1,17 +1,17 @@
 package com.commerce.service.impl;
 
 import java.util.List;
-import java.util.Objects;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import com.codeforgeyt.onetomanywebservice.model.exception.ItemIsAlreadyAssignedException;
 import com.commerce.entity.Invoice;
 import com.commerce.entity.ItemInvoice;
+import com.commerce.entity.Product;
 import com.commerce.repository.IInvoice;
+import com.commerce.repository.IProduct;
 import com.commerce.service.ServiceInvoice;
 import com.commerce.service.ServiceItem;
 
@@ -20,6 +20,9 @@ public class SeriveInvoiceImpl implements ServiceInvoice{
 
 	@Autowired
 	IInvoice respositoryInvoice;
+	
+	@Autowired
+	IProduct repositoryProducto;
 	
 	@Autowired
 	ServiceItem serviceItem;
@@ -50,15 +53,16 @@ public class SeriveInvoiceImpl implements ServiceInvoice{
 
 	@Override
 	@Transactional
-	public Invoice addItemToInvoice(Long idInvoice, Long idItem) {
+	public Invoice addItemToInvoice(Long idInvoice, Long idItem, int cant) {
 		// TODO Auto-generated method stub
-		Invoice i= findOne(idInvoice);
-		ItemInvoice item=serviceItem.findOne(idItem);
-		
-        item.addItem(item);
-        item.setCart(cart);
-        return cart;
-		return null;
+		Invoice i= respositoryInvoice.getOne(idInvoice);
+		//debo encontrar el producto
+		Product producto=repositoryProducto.getOne(idItem);
+		ItemInvoice item= new ItemInvoice();
+		item.setProducto(producto);
+		item.setCantidad(cant);
+		i.addItemInvoice(item);
+		return i;
 	}
 
 	

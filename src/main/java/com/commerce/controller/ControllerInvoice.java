@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.codeforgeyt.onetomanywebservice.model.Cart;
-import com.codeforgeyt.onetomanywebservice.model.dto.CartDto;
 import com.commerce.entity.Client;
 import com.commerce.entity.Invoice;
+import com.commerce.entity.Product;
 import com.commerce.service.ServiceClient;
 import com.commerce.service.ServiceInvoice;
 
@@ -77,10 +75,13 @@ public class ControllerInvoice {
 		}
 	}*/
 	
-	 @PostMapping(value = "{invoiceId}/items/{itemId}/add")
+	    @PostMapping(value = "{invoiceId}/items/{itemId}/add/{cant}")
 	    public ResponseEntity<Invoice> addItemToCart(@PathVariable final Long invoiceId,
-	                                                 @PathVariable final Long itemId){
-	        Cart cart = cartService.addItemToCart(cartId, itemId);
-	        return new ResponseEntity<>(CartDto.from(cart), HttpStatus.OK);
+	                                                 @PathVariable final Long itemId,
+	                                                 @PathVariable final int cant
+	                                                 ){
+	        //Cart cart = cartService.addItemToCart(cartId, itemId);
+	        Invoice invoice=serviceInvoice.addItemToInvoice(invoiceId, itemId,cant);
+	        return new ResponseEntity<>(invoice, HttpStatus.OK);
 	    }
 }

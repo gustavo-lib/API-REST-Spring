@@ -15,6 +15,6 @@ public interface ServiceInvoice {
 	
 	public void delete(Long id);
 	
-	public Invoice addItemToInvoice(Long idInvoice, Long idItem);
+	public Invoice addItemToInvoice(Long idInvoice, Long idItem, int cant);
 
 }
