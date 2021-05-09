@@ -1,18 +1,19 @@
 # API-REST-Spring
 
-#### Requisitos
+## Requisitos
 - JDK 8 
 - Maven 3.0
 - Eclipse 
 - Spring Boot
+- Postman
 
-#### Dependencias del proyecto SpringBoot
+## Dependencias del proyecto SpringBoot
 - Spring Web
 - Spring Data JPA
 - Data Base H2
 
-###  API Description 
-- Endpoint Controller client
+## API Description 
+### Endpoint Controller client
 
 METHOD | PATH | DESCRIPTION 
 ------------|-----|------------
@@ -22,7 +23,7 @@ PUT |http://localhost:8080/api/client/{code} | update costumer
 POST |http://localhost:8080/api/client | save costumer
 DELETE |http://localhost:8080/api/client/{code} | delete costumer
 
-- Endpoint Controller invoice
+### Endpoint Controller invoice
 
 METHOD | PATH | DESCRIPTION 
 ------------|-----|------------
