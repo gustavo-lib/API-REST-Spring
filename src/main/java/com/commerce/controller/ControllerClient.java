@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commerce.convert.ClientModelConvert;
+import com.commerce.dto.ClientDTO;
 import com.commerce.entity.Client;
 import com.commerce.service.ServiceClient;
 
@@ -37,9 +39,12 @@ public class ControllerClient {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Client> obtenerEmpleado(@PathVariable Long id) {
+	public ResponseEntity<ClientDTO> obtenerCliente(@PathVariable Long id) {
 		try {
-			return ResponseEntity.status(HttpStatus.OK).body(serviceClient.findOne(id));
+			ClientDTO cliente;
+			ClientModelConvert convert= new ClientModelConvert();
+			cliente=convert.ConvertE2Dto(serviceClient.findOne(id));
+			return ResponseEntity.status(HttpStatus.OK).body(cliente);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
