@@ -14,5 +14,13 @@ public class ClientModelConvert {
 		clientDto.setEmail(client.getEmail());
 		return clientDto;
 	}
+	
+	public Client convertDto2Entity(ClientDTO cliente) {
+		Client client=new Client();
+		client.setNombre(cliente.getNombre());
+		client.setApellido(cliente.getApellido());
+		client.setEmail(cliente.getEmail());
+		return client;
+	}
 
 }
