@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.commerce.convert.ClientMapper;
 import com.commerce.entity.Client;
 import com.commerce.repository.IClient;
 import com.commerce.service.ServiceClient;
@@ -17,6 +18,9 @@ public class ServiceClientImpl implements ServiceClient  {
 
 	@Autowired
 	IClient respositoryClient;
+	
+	@Autowired
+	ClientMapper clientMapper;
 	
 	@Override
 	public List<Client> findAll() {
