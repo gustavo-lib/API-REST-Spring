@@ -2,11 +2,12 @@ package com.commerce.service;
 
 import java.util.List;
 
+import com.commerce.dto.ClientDTO;
 import com.commerce.entity.Client;
 
 public interface ServiceClient {
 	
-	public List<Client> findAll();
+	public List<ClientDTO> findAll();
 	
 	public Client save(Client cliente);
 	

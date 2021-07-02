@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.commerce.convert.ClientMapper;
+import com.commerce.dto.ClientDTO;
 import com.commerce.entity.Client;
 import com.commerce.repository.IClient;
 import com.commerce.service.ServiceClient;
@@ -23,9 +24,9 @@ public class ServiceClientImpl implements ServiceClient  {
 	ClientMapper clientMapper;
 	
 	@Override
-	public List<Client> findAll() {
-		// TODO Auto-generated method stub
-		return respositoryClient.findAll();
+	public List<ClientDTO> findAll() {
+		// TODO Auto-generated method stub respositoryClient.findAll();
+		return clientMapper.toDtoList(respositoryClient.findAll());
 		
 	}
 
