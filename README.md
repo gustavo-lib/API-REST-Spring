@@ -30,5 +30,5 @@ METHOD | PATH | DESCRIPTION
 GET |http://localhost:8080/api/invoice | get all invoice
 GET |http://localhost:8080/api/invoice/{code} | get one invoice
 POST |http://localhost:8080/api/invoice/save/{code} | save invoice
-POST |http://localhost:8080/api/invoice/{code1}/items/{code2}/add/{code3} | save item-quantity
+POST |http://localhost:8080/api/invoice/{code1}/items/{code2}/add/{code3} | save invoiceid-itemid-quantity
 
