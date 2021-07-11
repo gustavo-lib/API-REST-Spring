@@ -11,6 +11,7 @@
 - Spring Web
 - Spring Data JPA
 - Data Base H2
+- MapStruct Java
 
 ## API Description 
 ### Endpoint Controller client
